@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Form Monitor",
+  "version": "1.0",
+  "description": "Monitora o texto no formulário e fornece sugestões.",
+  "icons": {
+    "16": "algarlogo.png",
+    "32": "algarlogo.png",
+    "48": "algarlogo.png",
+    "128": "algarlogo.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icons": {
+      "16": "algarlogo.png",
+      "32": "algarlogo.png",
+      "48": "algarlogo.png",
+      "128": "algarlogo.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://jira.algartelecom.com.br:8443/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ]
+    }
+  ],
+  "host_permissions": [
+    "https://200.98.168.231/*"
+  ]
+}
